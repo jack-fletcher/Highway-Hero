@@ -7,6 +7,13 @@ public class CrashScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("gameScene1");
+        if (other.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("gameOver");
+        }
+        else if(other.gameObject.CompareTag("Traffic"))
+        {
+       //     Destroy(other.gameObject);
+        }
     }
 }

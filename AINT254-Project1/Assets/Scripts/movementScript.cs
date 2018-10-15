@@ -5,7 +5,8 @@ using UnityEngine;
 public class movementScript : MonoBehaviour {
     //base car speed
     public float baseSpeed = 10.0f;
-    //user turn input
+    //user input
+    public float speedInput;
     public float turnInput;
     //turn speed
     public float turnSpeed = 5.0f;
@@ -21,29 +22,15 @@ public class movementScript : MonoBehaviour {
     private void Update()
     {
         turnInput = Input.GetAxis("Horizontal");
-
+        speedInput = Input.GetAxis("Vertical");
     }
     // Update is called once per frame
     void FixedUpdate () {
         //keeps car going perpetually forward
         car.velocity = transform.forward * baseSpeed;
-
-        
+       // car.AddRelativeForce(0f, 0f, speedInput * baseSpeed );
+        //turn left or right
         car.AddRelativeTorque(0f, turnInput * turnSpeed, 0f);
        
-        //if (Input.GetKeyUp(KeyCode.A))
-        //{
-        //    Debug.Log("You moved left!");
-
-        //    transform.Translate (new Vector3(-10, 0, 0)); 
-
-        //}
-        //if (Input.GetKeyUp(KeyCode.D))
-        //{
-        //    Debug.Log("You moved right!");
-        //     transform.Translate(new Vector3(10, 0, 0));
-        //    car.AddForce(transform.forward * force);
-
-        //}
     }
 }
