@@ -7,8 +7,8 @@ public class gameUIScript : MonoBehaviour
 
     private Rect Menu = new Rect(10, 10, 190, 190);
     private Rect scoreBox = new Rect(Screen.width - 200, Screen.height - 200, 190, 190);
+    private Rect speedBox = new Rect(Screen.width - (Screen.width - 10), Screen.height - 200, 190, 190);
     bool isPaused;
-    public static int scoreText;
 
     void Start()
     {
@@ -36,5 +36,6 @@ public class gameUIScript : MonoBehaviour
             }
         }
         GUI.Box(scoreBox, ("Score:" + "\n" + scoreScript.score));
+        GUI.Box(speedBox, ("Speed:" + "\n" + movementScript.baseSpeed));
     }
 }
