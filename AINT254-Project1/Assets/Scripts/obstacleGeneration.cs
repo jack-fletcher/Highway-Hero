@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class obstacleGeneration : MonoBehaviour
 {
-    int[] xValues = new int[3] { -10, 0, 10 };
+   int[] xValues = new int[3] { -10, 0, 10 };
     public GameObject obstacle;
     public GameObject leftBarrier;
     public GameObject rightBarrier;
@@ -16,16 +16,17 @@ public class obstacleGeneration : MonoBehaviour
     static System.Random rnd = new System.Random();
     bool cpuSaver = false;
     public int trackLength = 5;
+    int x; 
     // Use this for initialization
     void Start()
     {
-
+        
     }
     //6 -2 14 are the numbers which a square can be instantiated on on the x axis 763
     // Update is called once per frame
     void Update()
     {
-        int x = xValues[rnd.Next(0, xValues.Length)];
+        //int x = xValues[rnd.Next(0, xValues.Length)];
 
         //float x = Random.Range(-8, 20);
         if (cpuSaver == false)
@@ -35,7 +36,7 @@ public class obstacleGeneration : MonoBehaviour
 
 
             {
-
+                 x = xValues[rnd.Next(0, xValues.Length)];
                 Instantiate(obstacle, new Vector3(x, 0, zObject), Quaternion.identity);
                 Instantiate(leftBarrier, new Vector3(-265, 0, zEnv), Quaternion.identity);
                 Instantiate(rightBarrier, new Vector3(265, 0, zEnv), Quaternion.identity);
@@ -45,15 +46,21 @@ public class obstacleGeneration : MonoBehaviour
                 zRoad = zRoad + 500;
                 Debug.Log(x);
                 cpuSaver = true;
+
             }
         }
-        else if (zObject < (zRoad))
-        {
 
+        else if (zObject < zRoad)
+        {
+            x = xValues[rnd.Next(0, xValues.Length)];
             Instantiate(obstacle, new Vector3(x, 0, zObject), Quaternion.identity);
             zObject = zObject + 50;
 
 
         }
     }
+    
+
+
+
 }

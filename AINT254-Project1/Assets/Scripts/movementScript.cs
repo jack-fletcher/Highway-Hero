@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class movementScript : MonoBehaviour {
     //base car speed 
-    public static float baseSpeed = 30.0f;
+    public static float baseSpeed = 50.0f;
     public float maxSpeed = 100f;
     public float minSpeed = 20f;
     //the amount the car moves
@@ -22,10 +22,11 @@ public class movementScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //get currentlane
+        
         currentLane = startingLane;
         car = GetComponent<Rigidbody>();
-     
-	}
+        
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -47,20 +48,23 @@ public class movementScript : MonoBehaviour {
         //turn left or right and stop rapid tapping a/d with isTurning
         if ((Input.GetAxis("Horizontal") < 0)  &&  (isTurning == false) && currentLane > lowestLane)
         {
-            horizontalMovement = -20;
+            horizontalMovement = horizontalMovement - 20;
             currentLane -= 1;
             isTurning = true;
-            Debug.Log(currentLane);
+           // Debug.Log(currentLane);
             StartCoroutine(stopMovement());
+            //Debug.Log(horizontalMovement);
+
         }
         if ((Input.GetAxis("Horizontal") > 0) && (isTurning == false) && currentLane < highestLane)
         {
-            horizontalMovement += 20;
+            horizontalMovement = horizontalMovement + 20;
             currentLane += 1;
             isTurning = true;
             StartCoroutine(stopMovement());
-            Debug.Log(currentLane);
-            //  car.AddRelativeTorque(0f, turnInput * turnSpeed, 0f);
+            //  Debug.Log(currentLane);
+            //Debug.Log(horizontalMovement);
+
 
         }
     }
