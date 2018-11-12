@@ -9,6 +9,8 @@ public class CrashScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            
+            
             SceneManager.LoadScene("gameOver");
         }
         else if(other.gameObject.CompareTag("Traffic"))
