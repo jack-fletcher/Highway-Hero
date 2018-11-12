@@ -35,7 +35,7 @@ public class gameUIScript : MonoBehaviour
                 isPaused = false;
             }
         }
-        GUI.Box(scoreBox, ("Score:" + "\n" + scoreScript.score));
+        GUI.Box(scoreBox, ("Score:" + "\n" + scoreScript.score + "\n" + "Coins:" + "\n" + PlayerScript.currentCoin));
         GUI.Box(speedBox, ("Speed:" + "\n" + movementScript.baseSpeed));
     }
 }

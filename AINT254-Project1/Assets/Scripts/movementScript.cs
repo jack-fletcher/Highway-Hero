@@ -9,7 +9,6 @@ public class movementScript : MonoBehaviour {
     public float minSpeed = 20f;
     //the amount the car moves
     public float horizontalMovement = 0;
-   
     public float startingLane = 0;
     public float highestLane = 1;
         public float lowestLane = -1;
@@ -22,7 +21,7 @@ public class movementScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //get currentlane
-        
+        baseSpeed = 50f;
         currentLane = startingLane;
         car = GetComponent<Rigidbody>();
         
