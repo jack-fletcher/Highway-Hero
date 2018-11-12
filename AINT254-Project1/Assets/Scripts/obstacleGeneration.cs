@@ -15,6 +15,7 @@ public class obstacleGeneration : MonoBehaviour
   public  float zEnv = 0;
   public  float zRoad = 500;
     static System.Random rnd = new System.Random();
+    int coinloc;
   private  bool cpuSaver = false;
     public int trackLength = 5;
     private int x; 
@@ -36,7 +37,7 @@ public class obstacleGeneration : MonoBehaviour
 
             {
                  x = xValues[rnd.Next(0, xValues.Length)];
-                int coinloc = xValues[rnd.Next(0, xValues.Length)];
+                coinloc = xValues[rnd.Next(0, xValues.Length)];
                 Instantiate(obstacle, new Vector3(x, 0, zObject), Quaternion.identity);
                 Instantiate(leftBarrier, new Vector3(-265, 0, zEnv), Quaternion.identity);
                 Instantiate(rightBarrier, new Vector3(265, 0, zEnv), Quaternion.identity);
@@ -53,8 +54,12 @@ public class obstacleGeneration : MonoBehaviour
 
         else if (zObject < zRoad)
         {
+            coinloc = xValues[rnd.Next(0, xValues.Length)];
+
             x = xValues[rnd.Next(0, xValues.Length)];
             Instantiate(obstacle, new Vector3(x, 0, zObject), Quaternion.identity);
+            Instantiate(coin, new Vector3(coinloc, 0, zObject), Quaternion.identity);
+
             zObject = zObject + 50;
 
 
