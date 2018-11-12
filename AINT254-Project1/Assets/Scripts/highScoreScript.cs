@@ -5,9 +5,11 @@ using UnityEngine.UI;
 public class highScoreScript : MonoBehaviour {
     public Text score = null;
     public Text highScore = null;
-    private 
-	// Use this for initialization
-	void Start () {
+    public Text coins = null;
+    private
+    // Use this for initialization
+    void Start() {
+        coins.text = "Coins:" + " " + "0";
         if (PlayerPrefs.HasKey("highScore"))
         {
             if (PlayerPrefs.GetInt("highScore") < scoreScript.score)
@@ -15,10 +17,23 @@ public class highScoreScript : MonoBehaviour {
                 PlayerPrefs.SetInt("highScore", (int)scoreScript.score);
             }
         }
-        else PlayerPrefs.SetInt("highScore", (int)scoreScript.score);
-        
+        if (PlayerPrefs.HasKey("coins"))
+        {
+
+            PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins") + PlayerScript.currentCoin);
+
+
+
+        }
+        else
+        {
+            PlayerPrefs.SetInt("coins", (int)PlayerScript.currentCoin);
+            PlayerPrefs.SetInt("highScore", (int)scoreScript.score);
+        }
+      
         score.text = "Score:" + " " + scoreScript.score;
         highScore.text = "Local HighScore:" + " " + PlayerPrefs.GetInt("highScore");
+        coins.text = "Coins:" + " " + PlayerPrefs.GetInt("coins");
 	}
 	
 	// Update is called once per frame
