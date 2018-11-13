@@ -16,43 +16,29 @@ public class obstacleGeneration : MonoBehaviour
   public  float zRoad = 500;
     static System.Random rnd = new System.Random();
     int coinloc;
-  private  bool cpuSaver = false;
+    private bool preMade = false;
     public int trackLength = 5;
     private int x; 
     // Use this for initialization
     void Start()
     {
-        
+        //premake the first x chunks of path where x is tracklength
+        for (int i = 0; i < trackLength; i++)
+
+
+
+        {
+            createObstacles();
+        }
+        preMade = true;
+        createObstacles();
     }
     //6 -2 14 are the numbers which a square can be instantiated on on the x axis 763
     // Update is called once per frame
     void Update()
     {
-
-        if (cpuSaver == false)
-        {
-            for (int i = 0; i < trackLength; i++)
-
-
-
-            {
-                 x = xValues[rnd.Next(0, xValues.Length)];
-                coinloc = xValues[rnd.Next(0, xValues.Length)];
-                Instantiate(obstacle, new Vector3(x, 0, zObject), Quaternion.identity);
-                Instantiate(leftBarrier, new Vector3(-265, 0, zEnv), Quaternion.identity);
-                Instantiate(rightBarrier, new Vector3(265, 0, zEnv), Quaternion.identity);
-                Instantiate(road, new Vector3(0, 0, zRoad), Quaternion.identity);
-                Instantiate(coin, new Vector3(coinloc,0, zObject), Quaternion.identity);
-                zObject = zObject + 50;
-                zEnv = zEnv + 507;
-                zRoad = zRoad + 500;
-
-                cpuSaver = true;
-
-            }
-        }
-
-        else if (zObject < zRoad)
+        //fills spacew with obstacles/collectables
+        if (zObject < zRoad)
         {
             coinloc = xValues[rnd.Next(0, xValues.Length)];
 
@@ -64,6 +50,29 @@ public class obstacleGeneration : MonoBehaviour
 
 
         }
+
+
+    }
+
+    public void createObstacles()
+    {
+        x = xValues[rnd.Next(0, xValues.Length)];
+        coinloc = xValues[rnd.Next(0, xValues.Length)];
+        Instantiate(obstacle, new Vector3(x, 0, zObject), Quaternion.identity);
+        Instantiate(leftBarrier, new Vector3(-265, 0, zEnv), Quaternion.identity);
+        Instantiate(rightBarrier, new Vector3(265, 0, zEnv), Quaternion.identity);
+        Instantiate(road, new Vector3(0, 0, zRoad), Quaternion.identity);
+        Instantiate(coin, new Vector3(coinloc, 0, zObject), Quaternion.identity);
+        zObject = zObject + 50;
+        zEnv = zEnv + 507;
+        zRoad = zRoad + 500;
+
+        if (preMade == true)
+        {
+            Invoke("createObstacles", 5);
+        }
+
+
     }
     
 

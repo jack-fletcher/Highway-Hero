@@ -8,9 +8,9 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1329912358666886}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1329912358666886
 GameObject:
   m_ObjectHideFlags: 0
@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 64645372993565562}
   - component: {fileID: 23280653526783386}
   - component: {fileID: 65540220254499984}
+  - component: {fileID: 114636720122937644}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -109,5 +110,16 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 2.220446e-16, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10, y: 8.941999, z: 10.017765}
+  m_Center: {x: 0, y: -0.056803703, z: -0.008904113}
+--- !u!114 &114636720122937644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1329912358666886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6882662fb3e9a9a43b0d02c8a33d76dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

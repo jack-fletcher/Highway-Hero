@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class shopScript : MonoBehaviour
 {
-    bool[] purchased = new bool[3] { false, false, false };
+    bool[] purchased = new bool[5] { false, false, false, false, false };
 
     public int position = 0;
     public Text titleText = null;
@@ -30,7 +30,7 @@ public class shopScript : MonoBehaviour
             PlayerPrefs.SetInt("coins", (int)PlayerScript.currentCoin);
         }
 
-        Coins.text = "Coins:" + " " + PlayerPrefs.GetInt("coins");
+        
     }
 
     public void rightButton()
@@ -60,6 +60,7 @@ public class shopScript : MonoBehaviour
     void Update()
 
     {
+        Coins.text = "Coins:" + " " + PlayerPrefs.GetInt("coins");
         if (purchased[position] == true)
         {
             purchase.text = "Purchased";
