@@ -5,13 +5,14 @@ using UnityEngine;
 public class movementScript : MonoBehaviour {
     //base car speed 
     public static float baseSpeed = 50.0f;
-    public float maxSpeed = 100f;
-    public float minSpeed = 20f;
+    public static float maxSpeed = 100f;
+    public static float minSpeed = 20f;
     //the amount the car moves
     public float horizontalMovement = 0;
     public float startingLane = 0;
     public float highestLane = 1;
         public float lowestLane = -1;
+    public static float turnSpeed = 0.5f;
     public float currentLane;
     public Rigidbody car;
     //is car currently turning
@@ -71,7 +72,7 @@ public class movementScript : MonoBehaviour {
     //routine that stops movement after waiting for x number of seconds and resets isTurning
     IEnumerator stopMovement()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(turnSpeed);
         horizontalMovement = 0;
         isTurning = false;
     }

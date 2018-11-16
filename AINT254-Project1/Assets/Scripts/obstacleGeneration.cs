@@ -14,7 +14,7 @@ public class obstacleGeneration : MonoBehaviour
    public float zObject = -100;
   public  float zEnv = 0;
   public  float zRoad = 500;
-    static System.Random rnd = new System.Random();
+     System.Random rnd = new System.Random();
     int coinloc;
     private bool preMade = false;
     public int trackLength = 5;
