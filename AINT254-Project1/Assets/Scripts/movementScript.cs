@@ -12,7 +12,7 @@ public class movementScript : MonoBehaviour {
     public float startingLane = 0;
     public float highestLane = 1;
         public float lowestLane = -1;
-    public static float turnSpeed = 0.5f;
+    public static float turnSpeed = 0.1f;
     public float currentLane;
     public Rigidbody car;
     //is car currently turning
@@ -46,9 +46,9 @@ public class movementScript : MonoBehaviour {
         }
 
         //turn left or right and stop rapid tapping a/d with isTurning
-        if ((Input.GetAxis("Horizontal") < 0)  &&  (isTurning == false) && currentLane > lowestLane)
+        if ((Input.GetAxisRaw("Horizontal") < 0)  &&  (isTurning == false) && currentLane > lowestLane)
         {
-            horizontalMovement = horizontalMovement - 20;
+            horizontalMovement = horizontalMovement - 100;
             currentLane -= 1;
             isTurning = true;
            // Debug.Log(currentLane);
@@ -56,9 +56,9 @@ public class movementScript : MonoBehaviour {
             //Debug.Log(horizontalMovement);
 
         }
-        if ((Input.GetAxis("Horizontal") > 0) && (isTurning == false) && currentLane < highestLane)
+        if ((Input.GetAxisRaw("Horizontal") > 0) && (isTurning == false) && currentLane < highestLane)
         {
-            horizontalMovement = horizontalMovement + 20;
+            horizontalMovement = horizontalMovement + 100;
             currentLane += 1;
             isTurning = true;
             StartCoroutine(stopMovement());

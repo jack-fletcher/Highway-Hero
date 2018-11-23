@@ -33,7 +33,7 @@ public class highScoreScript : MonoBehaviour {
       
         score.text = "Score:" + " " + scoreScript.score;
         highScore.text = "Local HighScore:" + " " + PlayerPrefs.GetInt("highScore");
-     coins.text = "You collected" + " " + PlayerScript.currentCoin + "Coins";
+     coins.text = "You collected" + " " + PlayerScript.currentCoin + " Coin(s)";
 	}
 	
 	// Update is called once per frame

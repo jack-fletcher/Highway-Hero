@@ -24,7 +24,7 @@ public class shopScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Instantiate(shopCar);
+        
 
         purchasedLength = (purchased.Length - 1);
 
@@ -42,7 +42,7 @@ public class shopScript : MonoBehaviour
             PlayerPrefs.SetInt("coins", (int)PlayerScript.currentCoin);
         }
 
-        
+        UIChanges();
     }
 
     public void rightButton()
@@ -55,7 +55,7 @@ public class shopScript : MonoBehaviour
         {
             position++;
         }
-
+        UIChanges();
     }
 
     public void leftButton()
@@ -69,6 +69,7 @@ public class shopScript : MonoBehaviour
         {
             position--;
         }
+        UIChanges();
     }
     public void purchaseButton()
     {
@@ -116,16 +117,17 @@ public class shopScript : MonoBehaviour
         switch (position)
         {
             case 0:
+
                 titleText.text = "Purple Purveyor";
                 coinCost = 0;
                 hoveredCar = Resources.Load("Prefabs/purplePurveyor") as GameObject;
                 shopCar = Resources.Load("Prefabs/purplePurveyorShop") as GameObject;
                 getbaseSpeed = 50f;
-                getTurnSpeed = 0.5f;
+                getTurnSpeed = 0.25f;
                 getMaxSpeed = 100f;
-                baseSpeed.text = "Base Speed: " + movementScript.baseSpeed;
-                turnSpeed.text = "Turn Speed: " + movementScript.turnSpeed + " seconds";
-                maxSpeed.text = "Max speed: " + movementScript.maxSpeed;
+                baseSpeed.text = "Base Speed: " + getbaseSpeed;
+                turnSpeed.text = "Turn Speed: " + getTurnSpeed + " seconds";
+                maxSpeed.text = "Max speed: " + getMaxSpeed;
                 Cost.text = "Cost:" + " " + coinCost.ToString();
 
                 break;
@@ -135,13 +137,12 @@ public class shopScript : MonoBehaviour
                 hoveredCar = Resources.Load("Prefabs/redRammer") as GameObject;
                 shopCar = Resources.Load("Prefabs/redRammerShop") as GameObject;
                 getbaseSpeed = 30f;
-                getTurnSpeed = 0.5f;
+                getTurnSpeed = 0.25f;
                 getMaxSpeed = 80f;
-                baseSpeed.text = "Base Speed: " + movementScript.baseSpeed;
-                turnSpeed.text = "Turn Speed: " + movementScript.turnSpeed + " seconds";
-                maxSpeed.text = "Max speed: " + movementScript.maxSpeed;
+                baseSpeed.text = "Base Speed: " + getbaseSpeed;
+                turnSpeed.text = "Turn Speed: " + getTurnSpeed + " seconds";
+                maxSpeed.text = "Max speed: " + getMaxSpeed;
                 Cost.text = "Cost:" + " " + coinCost.ToString();
-                shopCar = shopCar;
 
                 break;
             case 2:
@@ -151,12 +152,11 @@ public class shopScript : MonoBehaviour
                 hoveredCar = Resources.Load("Prefabs/greenGiant") as GameObject;
                 shopCar = Resources.Load("Prefabs/greenGiantShop") as GameObject;
                 getbaseSpeed = 30f;
-                getTurnSpeed = 0.5f;
+                getTurnSpeed = 0.25f;
                 getMaxSpeed = 80f;
-                baseSpeed.text = "Base Speed: " + movementScript.baseSpeed;
-                turnSpeed.text = "Turn Speed: " + movementScript.turnSpeed + " seconds";
-                maxSpeed.text = "Max speed: " + movementScript.maxSpeed;
-                shopCar = shopCar;
+                baseSpeed.text = "Base Speed: " + getbaseSpeed;
+                turnSpeed.text = "Turn Speed: " + getTurnSpeed + " seconds";
+                maxSpeed.text = "Max speed: " + getMaxSpeed;
 
                 break;
             case 3:
@@ -166,11 +166,11 @@ public class shopScript : MonoBehaviour
                 hoveredCar = Resources.Load("Prefabs/blazingBlue") as GameObject;
                 shopCar = Resources.Load("Prefabs/blazingBlueShop") as GameObject;
                 getbaseSpeed = 30f;
-                getTurnSpeed = 0.5f;
+                getTurnSpeed = 0.25f;
                 getMaxSpeed = 80f;
-                baseSpeed.text = "Base Speed: " + movementScript.baseSpeed;
-                turnSpeed.text = "Turn Speed: " + movementScript.turnSpeed + " seconds";
-                maxSpeed.text = "Max speed: " + movementScript.maxSpeed;
+                baseSpeed.text = "Base Speed: " + getbaseSpeed;
+                turnSpeed.text = "Turn Speed: " + getTurnSpeed + " seconds";
+                maxSpeed.text = "Max speed: " + getMaxSpeed;
                 break;
             case 4:
                 titleText.text = "White whip";
@@ -179,16 +179,20 @@ public class shopScript : MonoBehaviour
                 hoveredCar = Resources.Load("Prefabs/whiteWhip") as GameObject;
                 shopCar = Resources.Load("Prefabs/whiteWhipShop") as GameObject;
                 getbaseSpeed = 30f;
-                getTurnSpeed = 0.5f;
+                getTurnSpeed = 0.25f;
                 getMaxSpeed = 80f;
-                baseSpeed.text = "Base Speed: " + movementScript.baseSpeed;
-                turnSpeed.text = "Turn Speed: " + movementScript.turnSpeed + " seconds";
-                maxSpeed.text = "Max speed: " + movementScript.maxSpeed;
+                baseSpeed.text = "Base Speed: " + getbaseSpeed;
+                turnSpeed.text = "Turn Speed: " + getTurnSpeed + " seconds";
+                maxSpeed.text = "Max speed: " + getMaxSpeed;
                 break;
 
             default:
                 break;
         }
+    }
+
+    void UIChanges()
+    {
     }
 }
 
