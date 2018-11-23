@@ -17,7 +17,7 @@ public class movementScript : MonoBehaviour {
     public Rigidbody car;
     //is car currently turning
     public bool isTurning = false;
-   
+   //x values should be -10, 0, 10
     
 	// Use this for initialization
 	void Start () {
@@ -75,5 +75,16 @@ public class movementScript : MonoBehaviour {
         yield return new WaitForSeconds(turnSpeed);
         horizontalMovement = 0;
         isTurning = false;
+if (currentLane == -1) {
+            car.position = new Vector3(-10, car.transform.position.y, car.transform.position.z);
+        }
+        if (currentLane == 0) {
+            car.position = new Vector3(0, car.transform.position.y, car.transform.position.z);
+
+        }
+        if (currentLane == 1) {
+            car.position = new Vector3(10, car.transform.position.y, car.transform.position.z);
+
+        }
     }
 }

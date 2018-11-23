@@ -19,6 +19,7 @@ public class coinScript : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Player"))
         {PlayerScript.currentCoin = PlayerScript.currentCoin + 1;
+            scoreScript.score = scoreScript.score + 10;
             Destroy(gameObject);
             Debug.Log(PlayerScript.currentCoin);
         }
