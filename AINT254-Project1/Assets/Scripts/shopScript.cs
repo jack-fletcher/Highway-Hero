@@ -24,7 +24,9 @@ public class shopScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+
+
+ 
 
         purchasedLength = (purchased.Length - 1);
 
@@ -42,7 +44,6 @@ public class shopScript : MonoBehaviour
             PlayerPrefs.SetInt("coins", (int)PlayerScript.currentCoin);
         }
 
-        UIChanges();
     }
 
     public void rightButton()
@@ -193,6 +194,7 @@ public class shopScript : MonoBehaviour
 
     void UIChanges()
     {
+
     }
 }
 
