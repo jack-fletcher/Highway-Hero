@@ -28,4 +28,8 @@ public void startGame()
     {
         Application.Quit();
     }
+    public void loadShop()
+    {
+        SceneManager.LoadScene("ShopScene");
+    }
 }
