@@ -9,7 +9,7 @@ public class scoreScript : MonoBehaviour {
     public float scoreMultiplier = 1;
     // Use this for initialization
     void Start () {
-        score = 0;
+		
 	}
 	
 	// Update is called once per frame

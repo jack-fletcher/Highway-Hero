@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 public class gameUIScript : MonoBehaviour
 {
-    public Text score = null;
-    public Text coins = null;
-    public Text speed = null;
-    private Rect Menu = new Rect(10, 10, 190, 190);
 
+    private Rect Menu = new Rect(10, 10, 190, 190);
+    private Rect scoreBox = new Rect(Screen.width - 200, Screen.height - 200, 190, 190);
+    private Rect speedBox = new Rect(Screen.width - (Screen.width - 10), Screen.height - 200, 190, 190);
     bool isPaused;
 
     void Start()
@@ -36,10 +35,7 @@ public class gameUIScript : MonoBehaviour
                 isPaused = false;
             }
         }
-        score.text = "Score:" + " " + scoreScript.score;
-        coins.text = "Coins:" + " " + PlayerScript.currentCoin;
-        speed.text = "Speed:" + " " + movementScript.baseSpeed;
-
-
+        GUI.Box(scoreBox, ("Score:" + "\n" + scoreScript.score));
+        GUI.Box(speedBox, ("Speed:" + "\n" + movementScript.baseSpeed));
     }
 }
