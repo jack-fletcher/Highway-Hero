@@ -1,2 +1,0 @@
-C:\Users\jfletcher7\Documents\week2session2\Temp\UnityVS_obj\Debug\week2session2.csprojResolveAssemblyReference.cache
-C:\Users\jfletcher7\Documents\week2session2\Temp\UnityVS_obj\Debug\week2session2.csproj.CoreCompileInputs.cache
