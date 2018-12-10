@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 4398229330349044}
   - component: {fileID: 198504091177168614}
   - component: {fileID: 199434529920193810}
+  - component: {fileID: 114591688386021340}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -332,7 +333,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908271989159924}
   m_LocalRotation: {x: -0.9997377, y: -0, z: -0, w: 0.022905586}
-  m_LocalPosition: {x: -0.48, y: 0, z: -0.4600067}
+  m_LocalPosition: {x: -0.06, y: 0, z: -0.4600067}
   m_LocalScale: {x: 1, y: 1.0067309, z: 1.0067307}
   m_Children: []
   m_Father: {fileID: 4679665832315666}
@@ -957,6 +958,17 @@ MonoBehaviour:
   car: {fileID: 0}
   tyres: {fileID: 0}
   isTurning: 0
+--- !u!114 &114591688386021340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1908271989159924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148f9fb3fd954124f8a043a51da37690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114635579145447402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1818,7 +1830,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.01
+      value: 0.3
       mode: 0
       spread: 0
       speed:

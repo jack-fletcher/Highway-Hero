@@ -7,26 +7,14 @@ public class PauseUI : MonoBehaviour {
     public GameObject pauseUI;
 	// Use this for initialization
 	void Start () {
-		
+        pauseUI.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetButtonDown("Pause"))
         {
-            pauseUI.SetActive(true);
-            paused = !paused;
-        }
-		if (paused)
-        {
-            AudioListener.volume = 0f;
-            Time.timeScale = 0;
-        }
-        else if (!paused)
-        {
-            AudioListener.volume = 1f;
-            pauseUI.SetActive(false);
-            Time.timeScale = 1;
+            Resume();
         }
 	}
 public void restart()
@@ -39,6 +27,22 @@ public void restart()
     }
     public void Resume()
     {
+        
+            paused = !paused;
+        
+        if (paused)
+        {
+            pauseUI.SetActive(true);
+
+            AudioListener.volume = 0f;
+            Time.timeScale = 0;
+        }
+        else if (!paused)
+        {
+            AudioListener.volume = 1f;
+            pauseUI.SetActive(false);
+            Time.timeScale = 1;
+        }
     }
     public void Quit()
     {

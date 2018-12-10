@@ -13,6 +13,7 @@ public class movementScript : MonoBehaviour {
     public float highestLane = 1;
         public float lowestLane = -1;
     public static float turnSpeed = 0.1f;
+    public static bool boosted = false;
     public float currentLane;
     public Rigidbody car;
     public AudioSource tyres;
@@ -36,13 +37,13 @@ public class movementScript : MonoBehaviour {
         car.velocity = new Vector3(horizontalMovement, 0, baseSpeed);
 
 
-        if ((Input.GetAxis("Vertical") > 0 && baseSpeed < maxSpeed))
+        if ((Input.GetAxis("Vertical") > 0 && baseSpeed < maxSpeed) && boosted == false)
         {
             baseSpeed += 1f;
             
         }
 
-        if ((Input.GetAxis("Vertical") < 0 && baseSpeed > minSpeed))
+        if ((Input.GetAxis("Vertical") < 0 && baseSpeed > minSpeed) && boosted == false)
         {
             baseSpeed -= 1f;
         }
