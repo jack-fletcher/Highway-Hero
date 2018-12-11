@@ -18,6 +18,7 @@ public class CrashScript : MonoBehaviour
                 if (PlayerScript.lives > 0)
                 {
                     PlayerScript.lives -= 1;
+                    PlayerScript.invincible = true;
                     Destroy(this.gameObject);
                 }
             }
@@ -29,7 +30,7 @@ public class CrashScript : MonoBehaviour
             //Instantiate(explosion, this.transform);
             else if (PlayerScript.lives == 0)
             {
-                Destroy(other.gameObject);
+                Destroy(this.gameObject);
                 death();
                     }
         }

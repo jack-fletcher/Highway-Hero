@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour {
 
     IEnumerator Timer()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         PlayerScript.invincible = false;
         Debug.Log("You are no longer invincible!");
         

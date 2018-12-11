@@ -8,7 +8,7 @@ public class characterCreation : MonoBehaviour {
 	void Start () {
         if (selectedCar == null)
         {
-            selectedCar = Resources.Load("Prefabs/purplePurveyor") as GameObject;
+            selectedCar = Resources.Load("Prefabs/redCar") as GameObject;
         }
         Instantiate(selectedCar);
 	}
