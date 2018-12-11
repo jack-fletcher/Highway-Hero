@@ -17,6 +17,7 @@ public class movementScript : MonoBehaviour {
     public float currentLane;
     public Rigidbody car;
     public AudioSource tyres;
+    float timer;
     //is car currently turning
     public bool isTurning = false;
     
@@ -26,6 +27,7 @@ public class movementScript : MonoBehaviour {
 	void Start () {
         //get currentlane
         baseSpeed = 50f;
+        timer = 0;
         currentLane = startingLane;
         car = GetComponent<Rigidbody>();
         tyres = GetComponent<AudioSource>();
@@ -36,34 +38,42 @@ public class movementScript : MonoBehaviour {
         //keeps car going perpetually forward and adds variable for left/right movement
         car.velocity = new Vector3(horizontalMovement, 0, baseSpeed);
 
-
-        if ((Input.GetAxis("Vertical") > 0 && baseSpeed < maxSpeed) && boosted == false)
+        
+        timer += Time.deltaTime;
+        if (timer > 3)
         {
             baseSpeed += 1f;
-            
+            timer = 0;
         }
 
-        if ((Input.GetAxis("Vertical") < 0 && baseSpeed > minSpeed) && boosted == false)
-        {
-            baseSpeed -= 1f;
-        }
+
+        //if ((Input.GetAxis("Vertical") > 0 && baseSpeed < maxSpeed) && boosted == false)
+        //{
+        //    baseSpeed += 1f;
+            
+        //}
+
+        //if ((Input.GetAxis("Vertical") < 0 && baseSpeed > minSpeed) && boosted == false)
+        //{
+        //    baseSpeed -= 1f;
+        //}
 
         //turn left or right and stop rapid tapping a/d with isTurning
-        if ((Input.GetAxisRaw("Horizontal") < 0) && (isTurning == false) && currentLane > lowestLane)
+        if ((Input.GetButton("Left")) && (isTurning == false) && currentLane > lowestLane)
         {
 
             if (!tyres.isPlaying)
             {
-                tyres.panStereo = -1.0f;
+               // tyres.panStereo = -1.0f;
 
                 tyres.Play();
             }
             else if (tyres.isPlaying)
             {
-                tyres.Stop();
-                tyres.panStereo = -1.0f;
+               // tyres.Stop();
+              //  tyres.panStereo = -1.0f;
 
-                tyres.Play();
+               // tyres.Play();
             }
             horizontalMovement = horizontalMovement - 100;
             currentLane -= 1;
@@ -73,7 +83,7 @@ public class movementScript : MonoBehaviour {
             //Debug.Log(horizontalMovement);
 
         }
-        if ((Input.GetAxisRaw("Horizontal") > 0) && (isTurning == false) && currentLane < highestLane)
+        if ((Input.GetButton("Right")) && (isTurning == false) && currentLane < highestLane)
         {
             if (!tyres.isPlaying)
             {

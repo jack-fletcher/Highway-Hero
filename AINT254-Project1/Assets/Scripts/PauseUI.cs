@@ -8,6 +8,7 @@ public class PauseUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         pauseUI.SetActive(false);
+        Time.timeScale = 1;
 	}
 	
 	// Update is called once per frame
