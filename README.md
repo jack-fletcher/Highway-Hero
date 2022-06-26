@@ -1,2 +1,2 @@
-# AINT254-Part1
-Repo for the AINT254 Project 1
+# Highway Hero
+Repo for Highway Hero
